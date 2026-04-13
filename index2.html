@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test 2</title>
+</head>
+<body>
+    <p>
+        <h1>Clique in abstract format</h1>
+    </p>
+    <svg width="300" height="500" xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <path id="triangle" fill="blue" stroke="red" stroke-width="4" transform="1s" />
+        <script type="application/ecmascript">
+            <![CDATA[
+                const sortPoint = () => [Math.random() * 300, Math.random() * 500];
+                function process () {
+                    var triangle = document.getElementById("triangle");
+                    triangle.setAttribute(
+                    "d",
+                    `M ${sortPoint().join(" ")}
+                    L ${sortPoint().join(" ")}
+                    L ${sortPoint().join(" ")}
+                    L ${sortPoint().join(" ")}
+                    L ${sortPoint().join(" ")}
+                    L ${sortPoint().join(" ")}
+                    Z`);
+                    triangle.addEventListener("click", process);
+                }
+                process();
+            ]]>
+        </script>
+    </svg>
+</body>
+</html>
