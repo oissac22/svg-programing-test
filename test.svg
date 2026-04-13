@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <path
+        id="triangle"
+        d="M 100 25 L 175 175 L 25 175 Z"
+        fill="green"
+        stroke="blue"
+        stroke-width="4"
+        style="transition: 1s;"
+    />
+    <script type="text/javascript">
+        const path = document.querySelector('#triangle');
+        const sortByte = () => Math.floor(Math.random() * 256);
+        let rotate = 0;
+        const incRotate = () => {
+            rotate += 90;
+            if (rotate > 360) rotate -= 360;
+        }
+        path.addEventListener('click', (e) => {
+            incRotate();
+            e.target.setAttribute('transform', `rotate(${rotate} 100 100)`);
+            e.target.setAttribute('fill', `rgb(${sortByte()}, ${sortByte()}, ${sortByte()})`);
+        });
+    </script>
+</svg>
